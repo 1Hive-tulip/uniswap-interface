@@ -1,6 +1,7 @@
 import { CurrencyAmount, JSBI, Token, Trade } from 'uniswap-xdai-sdk'
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { ArrowDown } from 'react-feather'
+import { isMobile } from 'react-device-detect'
 import { Text } from 'rebass'
 import { ThemeContext } from 'styled-components'
 import AddressInputPanel from '../../components/AddressInputPanel'
@@ -266,7 +267,13 @@ export default function Swap() {
       {isHnySelected && (
         <ButtonImagePlus
           onClick={() => handleAddHnyToMM()}
-          style={{ width: '18%', height: 33, position: 'absolute', marginTop: '-20px', marginRight: '-200px' }}
+          style={{
+            width: 'auto',
+            position: 'absolute',
+            marginTop: '-20px',
+            marginRight: isMobile ? '' : '-200px',
+            whiteSpace: 'nowrap'
+          }}
         >
           Add HNY to MetaMask
         </ButtonImagePlus>
