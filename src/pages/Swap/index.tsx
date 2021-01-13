@@ -253,6 +253,8 @@ export default function Swap() {
 
   const { ethereum } = window
   const handleAddHnyToMM = useCallback(() => addTokenToMetamask(ethereum, HONEY), [])
+  const isHnySelected =
+    currencies[Field.INPUT]?.symbol === HONEY.symbol || currencies[Field.OUTPUT]?.symbol === HONEY.symbol
 
   return (
     <>
@@ -261,12 +263,14 @@ export default function Swap() {
         tokens={urlLoadedTokens}
         onConfirm={handleConfirmTokenWarning}
       />
-      <ButtonImagePlus
-        onClick={() => handleAddHnyToMM()}
-        style={{ width: '18%', height: 33, position: 'absolute', marginTop: '-20px', marginRight: '-200px' }}
-      >
-        Add HNY to MetaMask
-      </ButtonImagePlus>
+      {isHnySelected && (
+        <ButtonImagePlus
+          onClick={() => handleAddHnyToMM()}
+          style={{ width: '18%', height: 33, position: 'absolute', marginTop: '-20px', marginRight: '-200px' }}
+        >
+          Add HNY to MetaMask
+        </ButtonImagePlus>
+      )}
       <AppBody>
         <SwapPoolTabs active={'swap'} />
         <Wrapper id="swap-page">
