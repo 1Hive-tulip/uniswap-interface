@@ -1,13 +1,13 @@
-# Swapr dapp
+# Swapr
 
-An open source decentralized application for Swapr -- a protocol for decentralized exchange of Ethereum tokens governed by the DXdao.
+An open source decentralized application for Swapr -- a protocol for decentralized exchange
 
 ## Development
 
 ### Install Dependencies
 
 ```bash
-yarn
+yarn install
 ```
 
 ### Run
